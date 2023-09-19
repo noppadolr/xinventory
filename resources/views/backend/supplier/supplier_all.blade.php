@@ -15,7 +15,7 @@
 
 <div class="content">
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="AddSupplierModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -60,7 +60,7 @@
                                             </div>
                                         </div>
 
-                                        <button class="btn btn-primary waves-effect waves-light mt-2" type="submit"><i class="mdi mdi-content-save"></i> Save</button>
+{{--                                        <button class="btn btn-primary waves-effect waves-light mt-2" type="submit"><i class="mdi mdi-content-save"></i> Save</button>--}}
                                     </form>
 
                                 </div> <!-- end card-body-->
@@ -68,6 +68,10 @@
                         </div> <!-- end col-->
                  </div>
             </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal" id="closemodal"><i class="mdi mdi-close-thick ml-2"></i>  Close</button>
+                    <button type="button" class="btn btn-primary  waves-effect waves-light " > <i class="mdi mdi-content-save ml-2"></i> Save </button>
+                </div>
             </div>
         </div>
     </div>
@@ -87,7 +91,7 @@
                         </ol>
                     </div>
                     <h4 class="page-title">Manage Suppliers</h4>
-                    <a href="#exampleModal" data-bs-toggle="modal" class="btn  btn-primary mb-2"  > Add Supplier</a>
+                    <a href="#AddSupplierModal" data-bs-toggle="modal" class="btn  btn-primary mb-2"  > Add Supplier</a>
                 </div>
             </div>
         </div>
@@ -149,6 +153,7 @@
 
     @push('scripts')
         <!-- third party js -->
+        <script src="{{ asset('admin/assets/jquery-3.7.0.min.js') }}"></script>
         <script src="{{ asset('admin/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('admin/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
         <script src="{{ asset('admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
@@ -174,5 +179,11 @@
 
         <!-- Sweet alert init js-->
         <script src="{{ asset('admin/assets/js/pages/sweet-alerts.init.js') }}"></script>
+
+        <script>
+            $('#closemodal').click(function() {
+                $('#AddSupplierModal').modal('hide');
+            });
+        </script>
     @endpush
 @endsection
